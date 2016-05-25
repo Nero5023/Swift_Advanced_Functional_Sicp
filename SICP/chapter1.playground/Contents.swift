@@ -214,7 +214,7 @@ func fastExpt(b: Int, n: Int) -> Int {
   }
 }
 
-//MARK: 1.16
+//: ## 1.16
 //Tail recursive
 func exptIter1_16(b: Int, n: Int, a: Int) -> Int {
   if n == 0 {
@@ -228,11 +228,12 @@ func exptIter1_16(b: Int, n: Int, a: Int) -> Int {
 }
 
 
+
 func fastExpt1_16(b: Int, n: Int) -> Int {
   return exptIter1_16(b, n: n, a: 1)
 }
 
-//MARK: 1.17
+//: ## 1.17 1.8
 func double(n: Int) -> Int {
   return n + n
 }
@@ -254,21 +255,30 @@ func muti(a: Int, b: Int) -> Int {
   }
 }
 
-func mutiIter(a: Int, b: Int, r: Int) -> Int {
+func mutiIter(a: Int, b: Int, productor: Int) -> Int {
   if b == 0 {
-    return 0
-  }
-  if b == 1 {
-    return r + a
+    return productor
   }
   if b%2 == 0 {
-    return mutiIter(a+a, b: b/2, r: r)
+    return mutiIter(a+a, b: b/2, productor: productor)
   }else {
-    return mutiIter(a, b: b-1, r: r+a)
+    return mutiIter(a, b: b-1, productor: productor+a)
   }
 }
 
 func fastMuti(a: Int, b: Int) -> Int {
-  return mutiIter(a, b: b, r: 0)
+  return mutiIter(a, b: b, productor: 0)
 }
 
+fastMuti(1, b: 5)
+
+
+// GCD
+func gcd(a a: Int, b: Int) -> Int {
+  if b == 0 {
+    return a
+  }else {
+    return gcd(a: b, b: a%b)
+  }
+}
+gcd(a: 206, b: 40)

@@ -14,8 +14,9 @@ func blur(radius: Double) -> Filter {
       kCIInputImageKey: image
     ]
     guard let filter = CIFilter(name: "CIGaussianBlur", withInputParameters: parameters) else
-      { fatalError() }
+    { fatalError() }
     guard let outputImage = filter.outputImage else { fatalError() }
     return outputImage
   }
 }
+

@@ -158,3 +158,57 @@ do {
     let s2: String?? = .Some(nil)
     print((s2 ?? "inner") ?? "outer")
 }
+
+func filterNil<S: SequenceType, T where S.Generator.Element == T?>(source: S) -> [T] {
+  return source.lazy.filter{ $0 != nil }.map{ $0! }
+}
+
+let source = ["1", "foo", "2", "3", "4", "5", "5"]
+source.flatMap{
+  Int($0)
+}
+
+let arraya: [Int?] = [1,2,3,4,nil]
+let arrayb: [Int?] = [1,2,3,4,nil]
+//arraya == arrayb
+
+func ~=<I: IntervalType>(pattern: I, value: I.Bound?) -> Bool {
+  return value.map{ pattern.contains($0) } ?? false
+}
+
+func ~=<T: Equatable>(pattern: T, value: T?) -> Bool {
+  return pattern == value
+}
+
+for i in ["2", "foo", "42", "100"] {
+  switch Int(i) {
+  case 42:
+    print("The meaning of life")
+  case 0..<10:
+    print("A signle digit")
+  case nil:
+    print("Not a number")
+  default:
+    print("A mystery number")
+  }
+}
+
+let ages = [
+  "Tim": 53, "Angela": 54, "Craig": 44,
+  "Jony": 47, "Chris": 37, "Michael":34
+]
+
+let people = ages.filter{
+  (_, age) in age < 50
+  }.map {
+    (name, _) in name
+}.sort()
+
+
+infix operator !! {}
+
+func !!<T>(wrapped: T?, @autoclosure failureText:()->String) -> T {
+  if let x = wrapped { return x }
+  fatalError(failureText())
+}
+

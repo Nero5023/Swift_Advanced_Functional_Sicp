@@ -212,3 +212,31 @@ func !!<T>(wrapped: T?, @autoclosure failureText:()->String) -> T {
   fatalError(failureText())
 }
 
+infix operator !? {}
+
+func !?<T: IntegerLiteralConvertible>(wrapped:T?, @autoclosure failureText:()->String) -> T {
+  assert(wrapped != nil, failureText())
+  return wrapped ?? 0
+}
+
+func !?<T: ArrayLiteralConvertible>(wrapped:T?, @autoclosure failureText:()->String) -> T {
+  assert(wrapped != nil, failureText())
+  return wrapped ?? []
+}
+
+func !?<T: StringLiteralConvertible>(wrapped:T?, @autoclosure failureText:()->String) -> T {
+  assert(wrapped != nil, failureText())
+  return wrapped ?? ""
+}
+
+func !?<T>(wrapped:T?, @autoclosure nilDefault:()->(value:T, text:String)) -> T {
+//  assert(wrapped != nil, failureText())
+//  return wrapped ?? ""
+  assert(wrapped != nil, nilDefault().text)
+  return wrapped ?? nilDefault().value
+}
+
+func !?(wrapped:()?, @autoclosure failureText:()->String) {
+  assert(wrapped != nil, failureText)
+}
+

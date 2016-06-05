@@ -240,3 +240,16 @@ func !?(wrapped:()?, @autoclosure failureText:()->String) {
   assert(wrapped != nil, failureText)
 }
 
+func increment(inout x: Int) {
+  x += 1
+}
+
+//var iVariable = 1
+//increment(&iVariable)
+//var jVariable: Int! = 1
+//increment(&jVariable)
+
+func useString(s: String) {
+  print(s)
+}
+

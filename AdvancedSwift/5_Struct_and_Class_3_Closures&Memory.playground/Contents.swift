@@ -2,4 +2,4 @@
 
 import Cocoa
 
-var str = "Hello, playground"
+//: #Closure and Memory

@@ -116,4 +116,77 @@ var numbers = [5,1,2,3,4]
 numbers.mergeSortInPlace()
 print(numbers)
 
+extension Array where Element: Comparable {
+  mutating func mergeSortInPlace2() {
+    var temp: [Element] = []
+    temp.reserveCapacity(count)
+    
+    func merge(low: Int, _ middle: Int, _ high: Int) {
+      temp.removeAll(keepCapacity: true)
+      var i = low, j = middle
+      while i != middle && j != high {
+        if self[j] < self[i] {
+          temp.append(self[j])
+          j += 1
+        }else {
+          temp.append(self[i])
+          i += 1
+        }
+      }
+      temp.appendContentsOf(self[i..<middle])
+      temp.appendContentsOf(self[j..<high])
+      replaceRange(low..<high, with: temp)
+    }
+    
+    let n = count
+    var size = 1
+    
+    while size < n {
+      for low in 0.stride(to: n-size, by: size*2) {
+        merge(low, low+size, min(low+size*2, n))
+      }
+      size*=2
+    }
+  }
+}
+
+
+//: # Functions as Delegates
+
+protocol Observable {
+  mutating func register(observer: Observer)
+}
+
+protocol Observer {
+  func receive(event: Any)
+}
+
+struct EventGenerator: Observable {
+  var observers: [Observer] = []
+  
+  mutating func register(observer: Observer) {
+    observers.append(observer)
+  }
+  
+  func fireEvents(event: Any) {
+    for observer in observers {
+      observer.receive(event)
+    }
+  }
+}
+
+
+struct EventReceiver: Observer {
+  func receive(event: Any) {
+    print("Received:\(event)")
+  }
+}
+
+var g = EventGenerator()
+let r = EventReceiver()
+g.register(r)
+var gen = EventGenerator()
+let receiver = EventReceiver()
+g.fireEvents("hi!")
+gen.fireEvents(42)
 

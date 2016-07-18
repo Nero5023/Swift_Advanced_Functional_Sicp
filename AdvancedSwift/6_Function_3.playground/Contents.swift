@@ -87,4 +87,68 @@ var file1 = File("/Users/Nero/Desktop/test.txt")
 file1.data = NSData(base64EncodedString: "Helloworld", options: NSDataBase64DecodingOptions(rawValue: 1))
 file1.size1
 
+//: # Overloading Subscriptis with different arguments
 
+struct RangeStart<I: ForwardIndexType> { let start: I }
+
+struct RangeEnd<I: ForwardIndexType> { let end: I }
+
+
+postfix operator ..< {}
+postfix func ..<<I: ForwardIndexType>(lhs: I) -> RangeStart<I> {
+  return RangeStart(start: lhs)
+}
+
+prefix operator ..< {}
+prefix func ..<<I: ForwardIndexType>(rhs: I) -> RangeEnd<I> {
+  return RangeEnd(end: rhs)
+}
+
+extension CollectionType {
+  subscript(r: RangeStart<Self.Index>) -> SubSequence {
+    return self[r.start..<self.endIndex]
+  }
+  
+  subscript(r: RangeEnd<Self.Index>) -> SubSequence {
+    return self[self.startIndex..<r.end]
+  }
+}
+let fibs = [0, 1, 1, 2, 3, 5]
+fibs[2..<]
+
+
+extension CollectionType where Generator.Element: Equatable, SubSequence.Generator.Element == Generator.Element {
+  func search<S: SequenceType where S.Generator.Element == Generator.Element>(pat: S) -> Index? {
+    return self.indices.indexOf {
+      self[$0..<].startsWith(pat)
+    }
+  }
+}
+
+let greeting = "Hello, World!"
+if let idx = greeting.characters.search(",".characters) {
+  print(String(greeting.characters[..<idx]))
+}
+
+//: # Advance Subscripts
+extension Dictionary {
+  subscript(key: Key, or defaultValue:Value) -> Value {
+    get {
+      return self[key] ?? defaultValue
+    }
+    set(newValue) {
+      self[key] = newValue
+    }
+  }
+}
+
+//一个sequence中element出现的次率
+extension SequenceType where Generator.Element: Hashable {
+  func frequencies() -> [Generator.Element: Int] {
+    var result: [Generator.Element: Int] = [:]
+    for x in self {
+      result[x, or: 0] += 1
+    }
+    return result
+  }
+}

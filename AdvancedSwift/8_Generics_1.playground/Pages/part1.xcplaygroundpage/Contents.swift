@@ -193,3 +193,5 @@ extension SequenceType {
 array.shuffle()
 
 //array.shuffleInPlace()
+
+//: [Next](@next)

@@ -1,0 +1,12 @@
+PODS:
+  - cmark (0.24.0)
+
+DEPENDENCIES:
+  - cmark (= 0.24.0)
+
+SPEC CHECKSUMS:
+  cmark: 208492309477fb38ae4fecbe23f966a65b9e4650
+
+PODFILE CHECKSUM: ac637738fe322e4e3dc7bf3cd9b4bba4cb4feea8
+
+COCOAPODS: 1.0.1

@@ -1,0 +1,7 @@
+platform :osx, 10.9
+
+use_frameworks!
+
+target “CommonMark” do
+  pod 'cmark', '0.24.0'
+end

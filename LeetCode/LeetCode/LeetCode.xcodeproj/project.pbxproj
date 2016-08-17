@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE0345C01D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0345BF1D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift */; };
+		CE4492C31D630374003C1905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492C21D630374003C1905 /* AppDelegate.swift */; };
+		CE4492C51D630374003C1905 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492C41D630374003C1905 /* ViewController.swift */; };
+		CE4492C81D630374003C1905 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4492C61D630374003C1905 /* Main.storyboard */; };
+		CE4492CA1D630374003C1905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4492C91D630374003C1905 /* Assets.xcassets */; };
+		CE4492CD1D630374003C1905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4492CB1D630374003C1905 /* LaunchScreen.storyboard */; };
+		CE4492D81D630374003C1905 /* LeetCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492D71D630374003C1905 /* LeetCodeTests.swift */; };
+		CE4492E31D630391003C1905 /* 1_TwoSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492E21D630391003C1905 /* 1_TwoSum.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE4492D41D630374003C1905 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE4492B71D630374003C1905 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE4492BE1D630374003C1905;
+			remoteInfo = LeetCode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE0345BF1D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "2_ AddTwoNumbers.swift"; sourceTree = "<group>"; };
+		CE4492BF1D630374003C1905 /* LeetCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4492C21D630374003C1905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE4492C41D630374003C1905 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE4492C71D630374003C1905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE4492C91D630374003C1905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE4492CC1D630374003C1905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE4492CE1D630374003C1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE4492D31D630374003C1905 /* LeetCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeetCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4492D71D630374003C1905 /* LeetCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCodeTests.swift; sourceTree = "<group>"; };
+		CE4492D91D630374003C1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE4492E21D630391003C1905 /* 1_TwoSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 1_TwoSum.swift; sourceTree = "<group>"; };
+		CE4492E41D63073C003C1905 /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE4492BC1D630374003C1905 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4492D01D630374003C1905 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE4492B61D630374003C1905 = {
+			isa = PBXGroup;
+			children = (
+				CE4492C11D630374003C1905 /* LeetCode */,
+				CE4492D61D630374003C1905 /* LeetCodeTests */,
+				CE4492C01D630374003C1905 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE4492C01D630374003C1905 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE4492BF1D630374003C1905 /* LeetCode.app */,
+				CE4492D31D630374003C1905 /* LeetCodeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE4492C11D630374003C1905 /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+				CE4492C21D630374003C1905 /* AppDelegate.swift */,
+				CE4492C41D630374003C1905 /* ViewController.swift */,
+				CE4492C61D630374003C1905 /* Main.storyboard */,
+				CE4492C91D630374003C1905 /* Assets.xcassets */,
+				CE4492CB1D630374003C1905 /* LaunchScreen.storyboard */,
+				CE4492CE1D630374003C1905 /* Info.plist */,
+				CE4492E21D630391003C1905 /* 1_TwoSum.swift */,
+				CE0345BF1D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift */,
+				CE4492E41D63073C003C1905 /* Test.playground */,
+			);
+			path = LeetCode;
+			sourceTree = "<group>";
+		};
+		CE4492D61D630374003C1905 /* LeetCodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE4492D71D630374003C1905 /* LeetCodeTests.swift */,
+				CE4492D91D630374003C1905 /* Info.plist */,
+			);
+			path = LeetCodeTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE4492BE1D630374003C1905 /* LeetCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4492DC1D630374003C1905 /* Build configuration list for PBXNativeTarget "LeetCode" */;
+			buildPhases = (
+				CE4492BB1D630374003C1905 /* Sources */,
+				CE4492BC1D630374003C1905 /* Frameworks */,
+				CE4492BD1D630374003C1905 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LeetCode;
+			productName = LeetCode;
+			productReference = CE4492BF1D630374003C1905 /* LeetCode.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE4492D21D630374003C1905 /* LeetCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4492DF1D630374003C1905 /* Build configuration list for PBXNativeTarget "LeetCodeTests" */;
+			buildPhases = (
+				CE4492CF1D630374003C1905 /* Sources */,
+				CE4492D01D630374003C1905 /* Frameworks */,
+				CE4492D11D630374003C1905 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE4492D51D630374003C1905 /* PBXTargetDependency */,
+			);
+			name = LeetCodeTests;
+			productName = LeetCodeTests;
+			productReference = CE4492D31D630374003C1905 /* LeetCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE4492B71D630374003C1905 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Nero;
+				TargetAttributes = {
+					CE4492BE1D630374003C1905 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					CE4492D21D630374003C1905 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = CE4492BE1D630374003C1905;
+					};
+				};
+			};
+			buildConfigurationList = CE4492BA1D630374003C1905 /* Build configuration list for PBXProject "LeetCode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE4492B61D630374003C1905;
+			productRefGroup = CE4492C01D630374003C1905 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE4492BE1D630374003C1905 /* LeetCode */,
+				CE4492D21D630374003C1905 /* LeetCodeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE4492BD1D630374003C1905 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4492CD1D630374003C1905 /* LaunchScreen.storyboard in Resources */,
+				CE4492CA1D630374003C1905 /* Assets.xcassets in Resources */,
+				CE4492C81D630374003C1905 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4492D11D630374003C1905 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE4492BB1D630374003C1905 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4492E31D630391003C1905 /* 1_TwoSum.swift in Sources */,
+				CE0345C01D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift in Sources */,
+				CE4492C51D630374003C1905 /* ViewController.swift in Sources */,
+				CE4492C31D630374003C1905 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4492CF1D630374003C1905 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4492D81D630374003C1905 /* LeetCodeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE4492D51D630374003C1905 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE4492BE1D630374003C1905 /* LeetCode */;
+			targetProxy = CE4492D41D630374003C1905 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE4492C61D630374003C1905 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE4492C71D630374003C1905 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE4492CB1D630374003C1905 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE4492CC1D630374003C1905 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE4492DA1D630374003C1905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE4492DB1D630374003C1905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE4492DD1D630374003C1905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LeetCode/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nero.LeetCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CE4492DE1D630374003C1905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LeetCode/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nero.LeetCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CE4492E01D630374003C1905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LeetCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nero.LeetCodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeetCode.app/LeetCode";
+			};
+			name = Debug;
+		};
+		CE4492E11D630374003C1905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LeetCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nero.LeetCodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeetCode.app/LeetCode";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE4492BA1D630374003C1905 /* Build configuration list for PBXProject "LeetCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4492DA1D630374003C1905 /* Debug */,
+				CE4492DB1D630374003C1905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE4492DC1D630374003C1905 /* Build configuration list for PBXNativeTarget "LeetCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4492DD1D630374003C1905 /* Debug */,
+				CE4492DE1D630374003C1905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE4492DF1D630374003C1905 /* Build configuration list for PBXNativeTarget "LeetCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4492E01D630374003C1905 /* Debug */,
+				CE4492E11D630374003C1905 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE4492B71D630374003C1905 /* Project object */;
+}

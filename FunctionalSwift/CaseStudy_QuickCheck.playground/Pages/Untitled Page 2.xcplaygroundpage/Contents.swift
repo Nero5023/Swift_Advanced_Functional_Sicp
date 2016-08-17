@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import UIKit
 
 let numberOfIterations =  10
 
@@ -35,3 +36,15 @@ func check2<A: Arbitrary>(message: String, _ property: (A)->Bool) -> () {
   print("\"\(message)\" passed \(numberOfIterations)")
 }
 
+let array:[CGFloat] = [50.2, 59.8, 76.6, 100.5, 153.6, 178.1, 209.6, 277.1, 363.7, 518.4]
+
+
+//array.map {
+//    let percent = CGFloat.random(min: 0.15, max: 0.3)
+//     return  $0*percent
+//}
+print(array.map { (x) -> String in
+      let percent = CGFloat.random(min: 0.15, max: 0.3)
+//    return Sx*percent
+    return String(format: "%.1f", x*percent)
+})

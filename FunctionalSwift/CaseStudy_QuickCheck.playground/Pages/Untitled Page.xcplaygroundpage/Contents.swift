@@ -83,6 +83,8 @@ extension String: Smaller {
   }
 }
 
+Int.random(from: 450, to: 500)
+
 
 
 //: [Next](@next)

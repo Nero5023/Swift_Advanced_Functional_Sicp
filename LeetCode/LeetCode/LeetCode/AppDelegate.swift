@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+
+    
+//    print("hello")
+    MedianOfTwoSortedArraysSolution().findMedianSortedArrays([1,2], [3,4])
     return true
   }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0345C01D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0345BF1D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift */; };
+		CE2C654F1D66E1B3000A9297 /* 4_MedianOfTwoSortedArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C654E1D66E1B3000A9297 /* 4_MedianOfTwoSortedArrays.swift */; };
 		CE4492C31D630374003C1905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492C21D630374003C1905 /* AppDelegate.swift */; };
 		CE4492C51D630374003C1905 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492C41D630374003C1905 /* ViewController.swift */; };
 		CE4492C81D630374003C1905 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4492C61D630374003C1905 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		CE4492CD1D630374003C1905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4492CB1D630374003C1905 /* LaunchScreen.storyboard */; };
 		CE4492D81D630374003C1905 /* LeetCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492D71D630374003C1905 /* LeetCodeTests.swift */; };
 		CE4492E31D630391003C1905 /* 1_TwoSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4492E21D630391003C1905 /* 1_TwoSum.swift */; };
+		CEA6A18E1D64C3EE006493B5 /* 3_LongestSubstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6A18D1D64C3EE006493B5 /* 3_LongestSubstring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		CE0345BF1D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "2_ AddTwoNumbers.swift"; sourceTree = "<group>"; };
+		CE2C654E1D66E1B3000A9297 /* 4_MedianOfTwoSortedArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 4_MedianOfTwoSortedArrays.swift; sourceTree = "<group>"; };
 		CE4492BF1D630374003C1905 /* LeetCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4492C21D630374003C1905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4492C41D630374003C1905 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		CE4492D91D630374003C1905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4492E21D630391003C1905 /* 1_TwoSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 1_TwoSum.swift; sourceTree = "<group>"; };
 		CE4492E41D63073C003C1905 /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; };
+		CEA6A18D1D64C3EE006493B5 /* 3_LongestSubstring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 3_LongestSubstring.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				CE4492CE1D630374003C1905 /* Info.plist */,
 				CE4492E21D630391003C1905 /* 1_TwoSum.swift */,
 				CE0345BF1D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift */,
+				CEA6A18D1D64C3EE006493B5 /* 3_LongestSubstring.swift */,
+				CE2C654E1D66E1B3000A9297 /* 4_MedianOfTwoSortedArrays.swift */,
 				CE4492E41D63073C003C1905 /* Test.playground */,
 			);
 			path = LeetCode;
@@ -206,9 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4492E31D630391003C1905 /* 1_TwoSum.swift in Sources */,
+				CE2C654F1D66E1B3000A9297 /* 4_MedianOfTwoSortedArrays.swift in Sources */,
 				CE0345C01D631EB3008A4EB2 /* 2_ AddTwoNumbers.swift in Sources */,
 				CE4492C51D630374003C1905 /* ViewController.swift in Sources */,
 				CE4492C31D630374003C1905 /* AppDelegate.swift in Sources */,
+				CEA6A18E1D64C3EE006493B5 /* 3_LongestSubstring.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

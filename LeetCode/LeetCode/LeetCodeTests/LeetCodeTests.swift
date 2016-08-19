@@ -35,5 +35,10 @@ class LeetCodeTests: XCTestCase {
       let result = TwoSumSolution().twoSum([2, 7, 11, 15, 45, 61, 45, 13, 53, 13, 55, 61, 90, 100, 23, 34, 56], 190)
     }
   }
-  
+    
+  func testAddTwoNumber() {
+    let test1 = AddTwoNumbersSolution().addTwoNumbers(ListNode(2, ListNode(4, ListNode(3))), ListNode(5, ListNode(6, ListNode(4))))
+    test1?.description
+    
+  }
 }

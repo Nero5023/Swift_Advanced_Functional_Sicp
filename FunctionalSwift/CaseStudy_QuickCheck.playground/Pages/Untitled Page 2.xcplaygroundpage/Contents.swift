@@ -48,3 +48,5 @@ print(array.map { (x) -> String in
 //    return Sx*percent
     return String(format: "%.1f", x*percent)
 })
+
+

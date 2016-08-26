@@ -181,3 +181,4 @@ func sumPrime(a a: Double, b: Double) -> Double {
 
 sumPrime(a: 2, b: 10)
 
+//: [Next](@next)

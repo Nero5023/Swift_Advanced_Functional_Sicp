@@ -98,6 +98,12 @@ fixedPoint(firstguess: 2) { x in
   (log(1000)/log(x) + x)/2
 }
 
+func averageDamp(f: (Double)->Double) -> (Double)->Double {
+  return { x in
+    return (x + f(x))/2
+  }
+}
+
 
 //: ## 1.37
 // 递归版

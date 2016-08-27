@@ -116,12 +116,26 @@ func compose(fx fx: FunctionType, gx: FunctionType) -> FunctionType {
   }
 }
 
+func compose(fx fx: FunctionType->FunctionType, gx: FunctionType->FunctionType) -> FunctionType->FunctionType {
+  return { x in
+    fx(gx(x))
+  }
+}
+
+
 compose(fx: { $0*$0 }, gx: inc)(6)
 
 
 //: ## 1.43
 
 func repeated(fx fx: FunctionType, times: Int) -> FunctionType {
+  if times == 1 {
+    return fx
+  }
+  return compose(fx: fx, gx: repeated(fx: fx, times: times-1))
+}
+
+func repeated(fx fx: FunctionType->FunctionType, times: Int) -> FunctionType->FunctionType {
   if times == 1 {
     return fx
   }
@@ -138,7 +152,92 @@ func repeatedIteration(fx fx: FunctionType, times: Int) -> FunctionType {
   return iter(1, repeatFunc: fx)
 }
 
+func repeatedIteration(fx fx: FunctionType->FunctionType, times: Int) -> FunctionType->FunctionType {
+  func iter(i: Int, repeatFunc: FunctionType->FunctionType) -> FunctionType->FunctionType{
+    if i == times {
+      return repeatFunc
+    }
+    return iter(i+1, repeatFunc: compose(fx: fx, gx: repeatFunc))
+  }
+  return iter(1, repeatFunc: fx)
+}
+
 repeated(fx: cube, times: 3)(2)
 repeatedIteration(fx: cube, times: 3)(2)
+
+//: ## 1.44
+
+func smooth(fx fx: FunctionType) -> FunctionType {
+  let dx = 0.0001
+  return { x in
+    (fx(x) + fx(x-dx) + fx(x+dx)) / 3
+  }
+}
+
+func square(x: Double) -> Double {
+  return x*x
+}
+
+func smoothNTimes(fx: FunctionType, times: Int) -> FunctionType {
+  let nRepeat = repeatedIteration(fx: smooth, times: times)
+  return nRepeat(fx)
+}
+
+//repeated(fx: smooth, times: 10)(square)(5)
+//
+
+//: ## 1.45
+func expt(base base: Double, n: Int) -> Double {
+  if n == 0 {
+    return 1
+  }
+  return repeated(fx: { x in
+      x*base
+    }, times: n)(1)
+}
+
+expt(base: 2, n: 2)
+
+func averageDampNTimes(fx: FunctionType, times: Int) -> FunctionType {
+  return repeated(fx: averageDamp, times: times)(fx)
+}
+
+//smoothNTimes(square, times: 10)(5)
+
+// n 是 次方，dampTimes 平均阻尼变化次数
+func damped_nth_root(n n: Int, dampTimes: Int) -> FunctionType {
+  return { x in
+    fixedPoint(firstguess: 1.0, function: averageDampNTimes({ y in
+        x/expt(base: y, n: n-1)
+      }, times: dampTimes))
+  }
+}
+
+//damped_nth_root(n: <#T##Int#>, dampTimes: <#T##Int#>)
+func sqrtRoot(x: Double) -> Double {
+  return damped_nth_root(n: 2, dampTimes: 1)(x)
+}
+sqrtRoot(9)
+
+//要使得计算 n次方根的不动点收敛，最少需要 ⌊lgn⌋ 次平均阻尼
+//取整
+func mylog(x: Double) -> Int {
+  if x/2 > 1 {
+    return 1 + mylog(x/2)
+  }else if x/2 < 1 {
+    return 0
+  }else {
+    return 1
+  }
+}
+
+func n_th_root(n: Int) -> FunctionType {
+  return damped_nth_root(n: n, dampTimes: mylog(Double(n)))
+}
+
+
+// 1.46
+
+
 
 //: [Next](@next)

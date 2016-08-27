@@ -236,7 +236,46 @@ func n_th_root(n: Int) -> FunctionType {
 }
 
 
-// 1.46
+//: ## 1.46
+// 它接受一个用于检测猜测值是否足够好的函数(close-enough?)，以及一个用于改进猜测值的函数(improve)
+func iteractiveImprove(closeEnough closeEnough: (Double, Double)->Bool, improve: FunctionType) -> FunctionType {
+  func tryGuess(guess: Double) -> Double {
+    let next = improve(guess)
+    if closeEnough(guess, next) {
+      return next
+    }
+    return tryGuess(next)
+  }
+  return tryGuess
+}
+
+
+func sqrt(x x: Double, guess: Double) -> Double {
+  func goodEnough(oldGeuss: Double, newGuess: Double) -> Bool {
+    if abs(newGuess - oldGeuss) / oldGeuss < 0.01 {
+      return true
+    }else {
+      return false
+    }
+  }
+  
+  func improve(guess: Double) -> Double {
+    return (guess + x/guess)/2
+  }
+  return iteractiveImprove(closeEnough: goodEnough, improve: improve)(guess)
+}
+
+func fixedPoint_refactor(firstguess firstguess: Double, function: (Double)->Double) -> Double {
+  func closeEnough(v1: Double, _ v2: Double) -> Bool {
+    let tolerance = 0.000001
+    return abs(v1-v2) < tolerance
+  }
+  
+  func improve(x: Double) -> Double {
+    return function(x)
+  }
+  return iteractiveImprove(closeEnough: closeEnough, improve: improve)(firstguess)
+}
 
 
 

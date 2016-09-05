@@ -127,6 +127,7 @@ extension Trie {
 
 extension Trie {
     var elements: [[Element]] {
+        // 如果是 isElement == ture 返回 [] // ?
         var result: [[Element]] = isElement ? [[]] : []
         for (key, value) in children {
             result += value.elements.map { [key] + $0 }
@@ -186,18 +187,18 @@ extension Trie {
         return Trie(isElement: isElement, children: newChildren)
     }
     
-    func insert<Seq: CollectionType where Seq.Generator.Element == Element>(key: Seq) -> Trie<Element> {
-        guard let (head, tail) = key.decompose else {
-            return Trie(isElement: true, children: self.children)
-        }
-        var newChildren = children
-        if let nextTrie = children[head] {
-            newChildren[head] = nextTrie.insert(tail)
-        }else {
-            newChildren[head] = Trie(tail)
-        }
-        return Trie(isElement: isElement, children: newChildren)
-    }
+//    func insert<Seq: CollectionType where Seq.Generator.Element == Element>(key: Seq) -> Trie<Element> {
+//        guard let (head, tail) = key.decompose else {
+//            return Trie(isElement: true, children: self.children)
+//        }
+//        var newChildren = children
+//        if let nextTrie = children[head] {
+//            newChildren[head] = nextTrie.insert(tail)
+//        }else {
+//            newChildren[head] = Trie(tail)
+//        }
+//        return Trie(isElement: isElement, children: newChildren)
+//    }
     
 }
 
@@ -219,3 +220,4 @@ func autocompleteString(knowWords: Trie<Character>, word: String) -> [String] {
 let contents = ["cat", "car", "cart", "dog"]
 let trieOfWords = buildStringTrie(contents)
 autocompleteString(trieOfWords, word: "car")
+print(trieOfWords.elements)

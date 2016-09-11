@@ -1,0 +1,17 @@
+(define (same-parity x . y)
+    (define (iter a result)
+        (cond ((null? a) 
+                    result)
+              ((odd? (car a)) 
+                (iter (cdr a) (append result (list (car a)))))
+              (else (iter (cdr a) result))
+          )
+    )
+    (iter (cons x y) '())
+)
+
+(define (same-parity2 x . y)
+    (filter ((if (even? x)
+        even?
+        odd?)) (cons x y))
+)

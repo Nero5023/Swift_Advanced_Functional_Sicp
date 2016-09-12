@@ -1,0 +1,25 @@
+(define (symbol-equal symbola symbolb)
+    (eq? symbola symbolb)    
+)
+
+(define (list-eqal lista listb)
+    (cond ((and (null? lista) (null? listb)) 
+                #t)
+          ((or (null? lista) (null? listb)) 
+                #f)
+          ((equal? (car lista) (car listb))  
+                (equal? (cdr lista) (cdr listb)))
+          (else 
+                #f)
+      )    
+)
+
+(define (equal? a b)
+    (cond ((and (symbol? a) (symbol? b)) 
+                (symbol-equal a b))
+          ((and (list? a) (list? b)) 
+                (list-eqal a b))
+          (else
+                (error "Wrong type input x and y -- EQUAL?" a b))
+    )
+)

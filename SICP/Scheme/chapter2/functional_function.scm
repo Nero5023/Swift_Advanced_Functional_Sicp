@@ -37,3 +37,25 @@
 
 (define (length2 sequencce)
     (accumulate (lambda (x y) (+ y 1)) 0 sequencce))
+
+
+(define (enumerate-interval start end)
+    (cond ((= start end) (list end))
+          ((> start end) (error "start larger than end"))
+          (else
+                (append (list start) (enumerate-interval (+ start 1) end)))
+
+    )
+)
+
+(define (flatmap proc seq)
+    (accumulate append '() (map proc seq)))
+
+(define (enumerate-interval start end)
+    (cond ((= start end) (list end))
+          ((> start end) '())
+          (else
+                (append (list start) (enumerate-interval (+ start 1) end)))
+
+    )
+)

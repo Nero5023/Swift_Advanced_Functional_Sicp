@@ -70,7 +70,8 @@
     (cond ((null? set) (list x))
           ((< (weight x) (weight (car set))) (cons x set))
           (else 
-                (adjoin-set x (cdr set)))
+                (cons (car set) (adjoin-set x (cdr set)))
+            )
     )
 )
 

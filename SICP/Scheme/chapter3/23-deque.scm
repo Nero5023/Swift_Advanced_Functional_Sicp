@@ -27,6 +27,10 @@
         (error "Front-deque called with an empty deque" deque)
         (car (rear-ptr deque))))
 
+(define (rear-second-ptr deque)
+
+)
+
 (define (insert-rear-deque! deque item)
     (let ((new-pair (cons item '())))
         (cond ((empty-deque? deque) 
@@ -43,7 +47,22 @@
 )
 
 (define (delete-rear-deque! deque)
+    (define (iter deque lst)
+        (cond ((null? (cdr (cdr lst))) 
+                    (set-cdr! lst '())
+                    (set-rear-ptr! deque lst)
+                deque)
+              (else (iter deque (cdr lst))))
+    )
 
+    (cond ((empty-deque? deque) 
+                (error "DELETE-REAR-DEQUE! called with an empty deque" deque))
+          ((null? (cdr (front-ptr deque))) 
+            (set-front-ptr! deque '())
+            deque)
+          (else
+                (iter deque (front-ptr deque)))
+      )
 )
 
 (define (insert-front-deque! deque item)
@@ -55,5 +74,15 @@
     )  
 )
 
-(define (delete-front parameters)
-  body)
+(define (delete-front-deque! deque)
+    (cond ((empty-deque? deque) 
+                (error "DELETE-FRONT-DEQUE! called with an empty deque" deque))
+          (else 
+            (set-front-ptr! deque (cdr (front-ptr deque)))
+          deque)
+      )
+)
+
+(define (print-deque deque)
+    (car deque))
+

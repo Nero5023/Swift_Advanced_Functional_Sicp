@@ -1,3 +1,15 @@
+(define (inverter input output)
+    (define (inverter-input)
+        (let ((new-value (logical-not (get-signal input))))
+            (after-daly inverter-delay
+                (lambda () 
+                    (set-signal! output new-value))))
+    )
+
+    (add-action! input inverter-input)
+    'ok
+)
+
 (define (logical-not s)
     (cond ((= s 0) 
             1)
@@ -15,7 +27,8 @@
 
     (add-action! a1 and-action-procedure)
     (add-action! a2 and-action-procedure)
-)
+    'ok
+)6
 
 (define (logical-or a1 a2)
     (if (or (= a1 1) (= a2 1))

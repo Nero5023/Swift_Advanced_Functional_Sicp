@@ -32,7 +32,7 @@
 me)
 
 (define (inform-about-value constraint)
-    (constraint 'I-have-a-vlue)
+    (constraint 'I-have-a-value)
 )
 
 (define (inform-about-no-value constraint)
@@ -54,7 +54,7 @@ me)
       (print-cdoe "?"))
 
     (define (me request)
-        (cond ((eq? request 'I-have-a-vlue) 
+        (cond ((eq? request 'I-have-a-value) 
                 (process-new-value))
               ((eq? request 'I-lost-my-value) 
                 (process-forget-value))
@@ -108,4 +108,26 @@ me)
         )
         me
     )
+)
+
+(define (for-each-except expection procedure list)
+    (define (loop items)
+        (cond ((null? items) 'done)
+                (else 
+                    (procedure (car items))
+                    (loop (cdr items))
+                )
+        )  
+    )
+    (loop list)
+)
+
+(define (has-value? connector)
+  (connector 'has-value?))
+
+(define (get-value connector)
+  (connector 'value))
+
+(define (set-value! connector new-value informant)
+    ((connector 'set-value!) new-value informant)
 )

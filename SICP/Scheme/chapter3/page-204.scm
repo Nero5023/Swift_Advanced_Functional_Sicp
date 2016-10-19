@@ -27,8 +27,9 @@
               ) 
         )
     )
-    (connect a1 request)
-    (connect a2 request)
+    (connect a1 me)
+    (connect a2 me)
+    (connect sum me)
 me)
 
 (define (inform-about-value constraint)
@@ -130,4 +131,11 @@ me)
 
 (define (set-value! connector new-value informant)
     ((connector 'set-value!) new-value informant)
+)
+
+(define (forget-value! connector retractor)
+  ((connector 'forget) retractor))
+
+(define (connect connector new-constraint)
+  ((connector 'connect) new-constraint)
 )

@@ -29,3 +29,11 @@
         the-empty-stream
         (cons-stream low (stream-enumerate-interval (+ low 1) high)))
 )
+
+(define (stream-filter pred stream)
+    (cond ((pred (stream-car stream)) 
+            (cons-stream (stream-car stream) (stream-filter pred (stream-cdr stream))))
+          (else (stream-filter pred (stream-cdr stream))))
+)
+
+(stream-cdr (stream-cdr (stream-filter prime? (stream-enumerate-interval 100000 10000000))))

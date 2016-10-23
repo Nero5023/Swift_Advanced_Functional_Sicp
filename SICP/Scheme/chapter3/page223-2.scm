@@ -37,3 +37,10 @@
 )
 
 (stream-cdr (stream-cdr (stream-filter prime? (stream-enumerate-interval 100000 10000000))))
+
+(define (displaystream s)
+  (stream-for-each display-line s))
+
+(define (display-line x)
+  (newline)
+(display x))

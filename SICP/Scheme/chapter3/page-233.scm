@@ -20,12 +20,6 @@
 )
 
 
-(define (pi-summands n)
-  (cons-stream (/ 1.0 n) (stream-map - (pi-summands (+ n 2)))))
-
-(define pi-stream (scale-stream (partical-sums (pi-summands 1)) 4))
-
-
 (define (scale-stream stream factor)
   (stream-map (lambda (x) (* x factor)) stream))
 
@@ -36,6 +30,12 @@
 (define (add-streams s1 s2)
   (stream-map + s1 s2))
 
+(define (pi-summands n)
+  (cons-stream (/ 1.0 n) (stream-map - (pi-summands (+ n 2)))))
+
+(define pi-stream (scale-stream (partical-sums (pi-summands 1)) 4))
+
+
 
 (define (euler-transform s)
     (let ((s0 (stream-ref s 0))
@@ -45,3 +45,12 @@
                         (euler-transform (stream-cdr s)))
     )  
 )
+
+
+(define (make-tableau transform s)
+  (cons-stream s (make-tableau transform (transform s))))
+
+(define (accelerated-sequence transform s)
+  (stream-map stream-car (make-tableau transform s)))
+
+(display-stream (accelerated-sequence euler-transform pi-stream))

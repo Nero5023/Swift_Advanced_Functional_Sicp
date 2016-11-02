@@ -1,6 +1,6 @@
 //: Playground - noun: a place where people can play
 
-import UIKit
+import Foundation
 
 struct Parser<Tokens, A> {
   let parse: (Tokens) -> (A, Tokens)?
@@ -95,6 +95,7 @@ extension Parser {
 }
 
 //这里map前面的 parse 返回值是 ((Int, Character), Int)
+int.followed(by: token("*")).followed(by: int)
 let mutiplication = int.followed(by: token("*")).followed(by: int).map { lhs, rhs in
   return lhs.0 * rhs
 }
@@ -169,6 +170,7 @@ extension Parser {
   }
 }
 
+
 run(token("a").or(token("b")), "bcd") // (.0 "b", .1 "cd")
 func |<A, Tokens>(lhs: Parser<Tokens, A>, rhs: Parser<Tokens, A>) -> Parser<Tokens, A> {
   return lhs.or(rhs)
@@ -184,4 +186,5 @@ run(expression, "6*7") // (.0 42, .1 "")
 run(expression, "2+40") // (.0 42, .1 "")
 run(expression, "2+4*10") // (.0 42, .1 "")
 run(expression, "4*10+2") // (.0 42, .1 "")
+
 

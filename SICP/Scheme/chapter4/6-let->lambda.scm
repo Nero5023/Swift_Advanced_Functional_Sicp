@@ -1,0 +1,8 @@
+(define (let->lambda exp)
+  (let ((var-and-exp-list (let-var-and-exp exp))
+        (body (let-body body)))
+      (let ((var-list (map car var-and-exp-list))
+          (exp-list (map cadr var-and-exp-list)))
+        (cons (make-lambda var-list body) exp-list)
+      )
+  ))

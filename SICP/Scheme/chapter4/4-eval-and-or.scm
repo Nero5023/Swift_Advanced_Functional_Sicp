@@ -32,3 +32,13 @@
     )
 )
 
+(define (eval-or predicates env)
+    (cond ((null? predicates) #f)
+          ((last-predicate? predicates) 
+                (true? (first-predicate predicates) env))
+          ((true? (first-predicate predicates) env)
+                #t)
+          (else 
+            (eval-or (rest-predicates predicates) env))
+    )
+)

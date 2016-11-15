@@ -52,7 +52,7 @@
 )
 
 
-(define (set-variable-value! var env)
+(define (set-variable-value! var val env)
     (if (eq? env the-empty-environemt)
           (error "Unbound variable" var)
           (let ((result (set-binding-in-frame var val (first-frame env))))

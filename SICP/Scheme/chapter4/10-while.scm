@@ -19,4 +19,6 @@
             (list 'while-iter))) 'true)) (list 'while-iter)))
 )
 
-
+(define (while exp)
+  (sequence->exp (list (list 'define (list 'while-iter) 
+        (make-if (while-condition exp) (sequence->exp (list (while-body exp) (list 'while-iter))) 'true')) (list 'while-iter))))

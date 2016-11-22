@@ -1,0 +1,1 @@
+;这里如果(try try)是终止的，那么if后面为true，就会 runforever 与 (try try) 是终止的矛盾了

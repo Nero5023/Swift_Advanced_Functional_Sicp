@@ -6,4 +6,12 @@ foldr (\x acc -> x:acc) [] [12,3,4]
 foldr (:) [] [12,3,4]
 foldl (\acc x -> acc ++ [x]) [] [12,3,4]
 
-and' xs = foldr (&&) True xsß
+and' xs = foldr (&&) True xs
+
+(takeWhile (<1000) (scanl1 (+) (map sqrt [1..])))
+
+sum (filter (> 10) (map (*2) [2..10]))
+sum $ filter (>10) $ map (* 2) [2..10]
+
+(.) :: (b -> c) -> (a -> b) -> a -> c 
+f . g = \x -> f (g x)

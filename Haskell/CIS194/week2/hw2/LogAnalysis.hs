@@ -34,6 +34,11 @@ parse = map parseMessage . lines
 newNode :: LogMessage -> MessageTree
 newNode msg = Node Leaf msg Leaf
 
+
+instance Ord LogMessage where
+    (LogMessage _ ts1 _) `compare` (LogMessage _ ts2 _) = ts1 `compare` ts2
+    _ `compare` _ = error "Compare error"
+
 insert :: LogMessage -> MessageTree -> MessageTree
 insert (Unknown _ ) tree = tree
 insert message Leaf = newNode message
@@ -44,3 +49,9 @@ insert message (Node leftChild node Leaf)
 insert message (Node leftChild node rightChild)
     | message < node = Node (insert message leftChild) node rightChild
     | otherwise = Node leftChild node (insert message rightChild)
+
+
+-- Exercise 3
+build :: [LogMessage] -> MessageTree
+build [] = Leaf
+build (x:xs) = insert x $ build xs

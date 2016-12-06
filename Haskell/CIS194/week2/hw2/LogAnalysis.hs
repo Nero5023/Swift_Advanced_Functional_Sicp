@@ -60,3 +60,17 @@ build (x:xs) = insert x $ build xs
 inOrder :: MessageTree -> [LogMessage]
 inOrder Leaf = []
 inOrder (Node leftChild node rightChild) = (inOrder leftChild) ++ [node] ++ (inOrder rightChild)
+
+-- Exercise 5
+toStr :: LogMessage -> String
+toStr (LogMessage _ _ message) = message
+
+wentWrong :: LogMessage -> Bool
+wentWrong  (LogMessage (Error severity) _ _) = severity >= 50
+wentWrong _ = False
+
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong mesgs = map toStr $ inOrder . build $ filter wentWrong mesgs
+
+-- whatWentWrong :: [LogMessage] -> [String]
+-- whatWentWrong mesgs = map (\(LogMessage _ _ message) -> message) $ inOrder . build $ filter wentWrong mesgs

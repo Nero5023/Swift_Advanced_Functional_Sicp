@@ -55,3 +55,8 @@ insert message (Node leftChild node rightChild)
 build :: [LogMessage] -> MessageTree
 build [] = Leaf
 build (x:xs) = insert x $ build xs
+
+-- Exercise 4
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node leftChild node rightChild) = (inOrder leftChild) ++ [node] ++ (inOrder rightChild)

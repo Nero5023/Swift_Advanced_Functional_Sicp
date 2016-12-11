@@ -23,7 +23,7 @@ localMaxima xs = map (!!1) $ filter isLocalMax $ tails xs
 
 
 -- Frequebct [1,2,3,4,5,6,7,8,9] result [0,1,1,1,1,1,1,1,1,1]
--- frequency :: [Integer] -> [Integer]
+frequency :: [Int] -> [Int]
 frequency xs = map (\n -> length $ filter (==n) xs) [0..9]
 
 -- frequencyToStr [0,1,1,1,1,1,1,1,1,1] 1 result " *********"

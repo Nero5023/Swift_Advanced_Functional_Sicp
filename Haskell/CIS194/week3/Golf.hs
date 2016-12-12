@@ -35,4 +35,4 @@ frequencyToStr (x:xs) apperTimes = str ++ (frequencyToStr xs apperTimes)
 histogram :: [Int] -> String
 histogram xs = let frequencyCount = frequency xs
                    m = maximum frequencyCount in
-                   (foldl1 (\acc x -> acc ++ "\n" ++ x) $ map (frequencyToStr frequencyCount) $ reverse [1..m]) ++ "\n==========\n0123456789\n"
+                   (unlines $ map (frequencyToStr frequencyCount) $ reverse [1..m]) ++ "==========\n0123456789\n"

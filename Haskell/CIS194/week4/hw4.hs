@@ -50,6 +50,7 @@ myFoldl f base xs = foldr (flip f) base $ reverse xs
 
 -- \\ is list difference
 
+
 cardProd :: [a] -> [b] -> [(a,b)]
 cardProd xs ys = [(x,y) | x <- xs, y<-ys]
 

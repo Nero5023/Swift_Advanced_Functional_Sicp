@@ -30,3 +30,34 @@ instance Expr ExprT where
 
 reify :: ExprT -> ExprT
 reify = id
+
+-- Exercise 4
+
+
+instance Expr Integer where
+    lit x = x
+    add = (+)
+    mul = (*)
+
+instance Expr Bool where
+    lit = (>0)
+    add = (||)
+    mul = (&&)
+
+data MinMax = MinMax Integer 
+    deriving (Eq, Show)
+
+instance Expr MinMax where
+    lit = MinMax 
+    add (MinMax lhs) (MinMax rhs) = MinMax $ max lhs rhs
+    mul (MinMax lhs) (MinMax rhs) = MinMax $ min lhs rhs
+
+data Mod7 = Mod7 Integer
+    deriving (Eq, Show)
+
+instance Expr Mod7 where
+    lit = Mod7
+    add (Mod7 lhs) (Mod7 rhs) = Mod7 $ (`mod` 7) $ lhs + rhs
+    mul (Mod7 lhs) (Mod7 rhs) = Mod7 $ (`mod` 7) $ lhs * rhs
+
+

@@ -1,18 +1,22 @@
+{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+
 module Calc where
 
 import ExprT
 import Parser
+import StackVM
 
 -- Exercise 1
 eval :: ExprT -> Integer
-eval (Lit int) = int
-eval (Add lhs rhs) = (eval lhs) + (eval rhs)
-eval (Mul lhs rhs) = (eval lhs) * (eval rhs)
+eval (ExprT.Lit int) = int
+eval (ExprT.Add lhs rhs) = (eval lhs) + (eval rhs)
+eval (ExprT.Mul lhs rhs) = (eval lhs) * (eval rhs)
 
 
 -- Exercise 2
 evalStr :: String -> Maybe Integer
-evalStr exp = case parseExp Lit Add Mul exp of
+evalStr exp = case parseExp ExprT.Lit ExprT.Add ExprT.Mul exp of
                         (Just exprt) -> Just $ eval exprt
                         Nothing -> Nothing
 
@@ -24,8 +28,8 @@ class Expr a where
 
 instance Expr ExprT where
     lit x = (Lit x)
-    add lhs rhs = (Add lhs rhs)
-    mul lhs rhs = (Mul lhs rhs)
+    add lhs rhs = (ExprT.Add lhs rhs)
+    mul lhs rhs = (ExprT.Mul lhs rhs)
 
 
 reify :: ExprT -> ExprT
@@ -59,5 +63,13 @@ instance Expr Mod7 where
     lit = Mod7
     add (Mod7 lhs) (Mod7 rhs) = Mod7 $ (`mod` 7) $ lhs + rhs
     mul (Mod7 lhs) (Mod7 rhs) = Mod7 $ (`mod` 7) $ lhs * rhs
+
+testExp :: Expr a => Maybe a
+testExp = parseExp lit add mul "(3 * -4) + 5"
+
+instance Expr Program where
+    lit x = [PushI x]
+    add lhs rhs = lhs ++ rhs ++ [StackVM.Add]
+    mul lhs rhs = lhs ++ rhs ++ [StackVM.Mul]
 
 

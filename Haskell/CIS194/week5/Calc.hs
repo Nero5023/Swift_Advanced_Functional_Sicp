@@ -6,6 +6,9 @@ module Calc where
 import ExprT
 import Parser
 import StackVM
+import Data.Maybe
+
+import qualified Data.Map as M
 
 -- Exercise 1
 eval :: ExprT -> Integer
@@ -37,7 +40,6 @@ reify = id
 
 -- Exercise 4
 
-
 instance Expr Integer where
     lit x = x
     add = (+)
@@ -67,9 +69,48 @@ instance Expr Mod7 where
 testExp :: Expr a => Maybe a
 testExp = parseExp lit add mul "(3 * -4) + 5"
 
+-- Exercise 5
 instance Expr Program where
     lit x = [PushI x]
     add lhs rhs = lhs ++ rhs ++ [StackVM.Add]
     mul lhs rhs = lhs ++ rhs ++ [StackVM.Mul]
 
+compile :: String -> Maybe Program
+compile str = parseExp lit add mul str :: Maybe Program
 
+-- Exercise 6
+
+class HasVars a where
+    var :: String -> a
+
+
+data VarExprT = VarExprT String Integer
+    deriving (Show, Eq)
+
+instance Expr VarExprT where
+    lit x = VarExprT "" x
+    add (VarExprT _ a) (VarExprT _ b) = VarExprT "" (a + b)
+    mul (VarExprT _ a) (VarExprT _ b) = VarExprT "" (a * b) 
+
+-- data VarExprT = Lit Integer
+--                 | Var String
+--                 | Add VarExprT VarExprT
+--                 | Mul VarExprT VarExprT
+
+type MapExpr = M.Map String Integer -> Maybe Integer
+
+instance HasVars MapExpr where
+    var =  M.lookup
+
+instance Expr MapExpr where
+    lit a _ =  Just a
+    add lhs rhs map = case (isNothing (lhs map) || isNothing (rhs map)) of 
+                                True -> Nothing
+                                _ -> Just (fromJust (lhs map) + fromJust (rhs map))
+
+    mul lhs rhs map = case (isNothing (lhs map) || isNothing (rhs map)) of 
+                                True -> Nothing
+                                _ -> Just (fromJust (lhs map) * fromJust (rhs map))
+
+withVars :: [(String, Integer)] -> MapExpr -> Maybe Integer
+withVars list expr = expr $ M.fromList list

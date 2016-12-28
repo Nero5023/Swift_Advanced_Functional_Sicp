@@ -24,6 +24,7 @@ instance Show a => Show (Stream a) where
     show = show . take 20 . streamToList
     -- show stream = show $ take 20 $ streamToList stream
 
+-- Exercise 4
 streamRepeat :: a -> Stream a
 streamRepeat x = Cons x $ streamRepeat x
 
@@ -32,3 +33,20 @@ streamMap f (Cons x xs) = Cons (f x)  (streamMap f xs)
 
 streamFromSeed :: (a->a) -> a -> Stream a
 streamFromSeed f x = Cons x $ streamFromSeed f $ f x
+
+-- Exercise 5
+nats :: Stream Integer
+nats = streamFromSeed (+1) 0
+
+-- Exercise 6
+interleaveStreams :: Stream a -> Stream a -> Stream a
+interleaveStreams (Cons x xs) ys = Cons x $ interleaveStreams ys xs
+-- 下面这个好像就不是惰性的了，每次都会解开，一直解下去
+-- interleaveStreams (Cons x xs) (Cons y ys) = 
+--         Cons x $ Cons y $ interleaveStreams xs ys
+
+ruler :: Stream Integer
+ruler = interleaveStreams (streamRepeat 0) (Cons 1 ruler)
+
+startRuler :: Integer -> Stream Integer
+startRuler x = interleaveStreams (streamRepeat x) (startRuler (x+1))

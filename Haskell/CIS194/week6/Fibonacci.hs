@@ -41,7 +41,9 @@ nats = streamFromSeed (+1) 0
 -- Exercise 6
 interleaveStreams :: Stream a -> Stream a -> Stream a
 interleaveStreams (Cons x xs) ys = Cons x $ interleaveStreams ys xs
--- 下面这个好像就不是惰性的了，每次都会解开，一直解下去
+
+-- interleaveStreams nats nats 但用 startRuler x = interleaveStreams (streamRepeat x) (startRuler (x+1)) 这句话就是错的，会 stack overflow
+-- 因为会不停的去解开 后面 startRuler (x+1), 不停地解下去，就栈溢出了
 -- interleaveStreams (Cons x xs) (Cons y ys) = 
 --         Cons x $ Cons y $ interleaveStreams xs ys
 

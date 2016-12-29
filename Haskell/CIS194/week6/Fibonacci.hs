@@ -52,3 +52,5 @@ ruler = interleaveStreams (streamRepeat 0) (Cons 1 ruler)
 
 startRuler :: Integer -> Stream Integer
 startRuler x = interleaveStreams (streamRepeat x) (startRuler (x+1))
+
+-- Exercise 7
